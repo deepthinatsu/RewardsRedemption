@@ -1,0 +1,35 @@
+<div *ngIf="showCart">
+    <div class="container">
+        <div class="table-responsive m-5 text-white">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Item Id</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cartItems">
+                         <td><p class="text-white">{{ item.id }}</p></td>
+                        <td><p class="text-white">{{ item.name }}</p></td>
+                         <td><p class="text-white">{{ item.price }}</p></td>
+                        <td><p class="text-white"><i class='material-icons' (click)="deleteCartItem(item.id)">delete</i></p></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <button  class="btn btn-success ml-5 w-75" (click)="updateRewards()">Proceed to pay</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="!showCart">
+    <div class="row mt-5">
+        <div class="col text-center">
+            <p class="display-4 text-white"><b>Your Cart is Empty</b></p>
+        </div>
+    </div>
+</div>
